@@ -1,0 +1,51 @@
+@use "./colors" as *;
+
+// desktop and tablet text style variables 
+
+    // read it as   $h-f-size as ====> header-font-size 
+    //              $h-l-height as ==> header-line-height
+
+
+    //page header 1
+        $h-f-size: 3.75rem;         //f-weight: 700;
+        $h-l-height: 4.25rem;
+        
+
+    //section header 2
+        $sh-f-size: 2.25rem;        //f-weight: 700;
+        $sh-l-height: 2.75rem;
+       
+
+    //subheader 3
+        $s-f-size: 1.5rem;          //f-weight: 600;
+        $s-l-height: 2rem;
+       
+
+    //body  4
+        $b-f-size: 0.875rem;        //f-weight: 400;
+        $b-l-height: 1.375rem;
+        
+
+    //footer
+        $f-f-size: 0.875rem;        //f-weight: 400;
+        $f-l-height: 1.25rem;
+        
+
+    //labels and Buttons
+        $lb-f-size: 0.75rem;        //f-weight: 700;
+        $lb-l-height: 1.25rem;
+        
+
+
+        
+// tablet and desktop button styles
+// for next project versions
+    //CTA Default styles
+        $bg-default: $black;
+        $color-default: $white;
+
+    //CTA Hover styles 
+        $bg-hover: $dark-black;
+        $color-hover: $white;
+
+

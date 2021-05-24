@@ -1,0 +1,473 @@
+@use "./partials/mixins" as *;
+@use "./partials/colors" as *;
+@use "./partials/typography" as *;
+@use "./partials/d-tab";
+@use "./partials/mobile" as *;
+@use "./partials/variables" as *;
+
+//All dimension are for mockup at 768px, 1280px, Design Varies a little bit for any other dimensions
+
+//basic rulset for generic elements thorughout the site
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    @include text-styles($b-f-size, $b-l-height, $f-weight-reg);
+    font-family: avenir;
+    text-align: center;
+    width: 100%; 
+}
+
+h2{
+    padding: $padding*1.5 0 $padding 0;
+}
+h3{
+     font-weight: $f-weight-demi;
+}
+
+//ruleset for header with logo and navbar
+
+.header{ 
+    background-color: $black;
+    color: $white;
+    padding-top: $padding;
+   
+       @include tablet{
+            @include flex(flex-start, center){
+                padding: $padding $padding*2.25 0 $padding*2.25;
+            }  
+        }
+        @include desktop{
+            @include flex(flex-start, center){
+                padding: $padding $padding*5 0 $padding*6;
+            }  
+        }
+    &__logo {
+        @include tablet{
+            margin-bottom: .8rem;
+        }
+            @include desktop{
+            margin-bottom: .8rem;
+        }
+
+    }
+    &__container{
+
+        @include tablet{
+            @include flex(center, center);
+            width: 40%;
+            max-width: 300px;
+        }
+            @include desktop{
+            @include flex(space-around, center);
+            width: 300px;
+        }
+    }
+}
+
+.nav{
+    width: 100%;
+    &__list{
+        @include flex(space-between, center);
+        width: 100%;
+        @include tablet{
+            padding-left: 2rem;
+        }
+            @include desktop{
+            padding-left: 3rem;
+          
+        }
+
+
+        &item{
+            list-style: none;
+            width: 50%;
+            padding: $padding 0;
+            border-bottom: 4px solid $black;
+
+            &--bio{
+                border-bottom: 4px solid $white;
+            }
+
+
+            &:hover, &:active {
+                border-bottom: 4px solid $white;
+                font-weight: 600;
+            }
+            @include tablet{
+                width: auto;
+                padding-bottom: 1.5rem;
+            }
+                @include desktop{
+                width: auto;
+                padding-bottom: 1.5rem;
+                }
+        }
+ 
+        &link{
+            text-decoration: none;
+            width: 100%;
+            padding-bottom: $padding;
+            color: $silver;
+            &:hover, &:active{
+                color: $white;
+            }
+            &--bio{
+                font-weight: $f-weight-demi;
+                color: $white;
+            }
+            @include tablet{
+                padding-bottom: 2rem;
+            }
+                @include desktop{
+                padding-bottom: 2rem;
+            }
+        }
+    }
+}
+
+// Hero section styles
+
+.hero{
+   position: relative;
+    background-image: $hero-bg;
+    height: 27rem;
+    background-position: 50% 50%;
+    background-size: cover;
+        @include tablet{
+            height: 29.5rem;
+            max-width: 100%;
+            background-position: bottom;
+            background-size: cover; 
+            }
+                @include desktop{
+                height: 40rem;
+                background-position: 50% 40%;
+        
+    }
+
+    &__overlay{
+        background-color: $black;
+        opacity: 50%;
+        z-index: 10;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: $dark-black;
+    }
+
+    &__title
+        {
+        @include text-styles($h-f-size , $h-l-height, $f-weight-demi);
+        padding-left: $padding;
+        color: $white;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 15;
+            @include tablet{
+                @include text-styles(d-tab.$h-f-size , d-tab.$h-l-height, $f-weight-demi);
+                padding: 0 $padding*2.25;
+            };
+                @include desktop{
+                    @include text-styles(d-tab.$h-f-size , d-tab.$h-l-height, $f-weight-demi);
+                    padding: 0 $padding*6;
+                };
+       
+    }
+}
+
+
+
+//main content styles 
+.main{
+    padding: 0 $padding;
+    text-align: left;
+    @include tablet{
+        padding: 0 $padding*2.25;
+    }
+        @include desktop{
+                padding: 0 $padding*6;
+        };
+
+
+    &__title{
+        @include text-styles($sh-f-size , $sh-l-height, $f-weight-demi);
+        padding-top: $padding*1.5 ;
+
+            @include tablet{
+                @include text-styles(d-tab.$sh-f-size , d-tab.$sh-l-height, $f-weight-demi);
+                padding: $padding*3 0 $padding*2.25 0;
+            }
+                @include desktop{
+                    @include text-styles(d-tab.$sh-f-size , d-tab.$sh-l-height, $f-weight-demi);
+                    padding: $padding*3 0 $padding*2.25 0;
+                }
+    }
+    &__container{
+
+        @include tablet{
+            max-width: 85%;
+            margin: 0 auto;
+        }
+
+        @include desktop{
+            max-width: 83.5%;
+            margin: 0 auto;
+        }
+    }
+
+    &__img{
+        background-image: $band-bg;
+        background-size: cover;
+        height: 20rem;
+        background-position: bottom;
+        max-width: 100%;
+        @include tablet{       
+            background-position: 50% 65%;
+            height: 20rem;
+        }
+            @include desktop{       
+                background-position: center;
+                height: 31rem;
+        }
+   }
+
+    &__text{
+        @include text-styles($s-f-size, $s-l-height, $f-weight-demi);
+        padding: $padding 0;
+        @include tablet{
+            @include text-styles(d-tab.$s-f-size, d-tab.$s-l-height, $f-weight-demi);
+            padding-top: $padding*2.25;
+        }
+        @include desktop{
+            @include text-styles(d-tab.$s-f-size, d-tab.$s-l-height, $f-weight-demi);
+            max-width: 77%;
+            padding-top: $padding*2.25;
+        }
+    }
+    &__author{
+        @include text-styles($s-f-size, $s-l-height, $f-weight-demi);
+        @include tablet{
+            @include text-styles(1rem, d-tab.$s-l-height, $f-weight-demi);
+        }
+    }
+
+
+}
+
+.description{
+    &__title{
+        @include text-styles($s-f-size, $s-l-height, $f-weight-demi);
+        padding: $padding*1.5 0 $padding 0;
+
+        @include tablet{
+            @include text-styles(d-tab.$s-f-size, d-tab.$s-l-height, $f-weight-demi);
+            padding: $padding*3 0 $padding*2.25 0;
+        }
+
+        @include desktop{
+            @include text-styles(d-tab.$s-f-size, d-tab.$s-l-height, $f-weight-demi);
+            padding: $padding*3 0 $padding*2.25 0;
+        }
+    }
+    &__content{
+        @include tablet{
+            @include flex(space-between, flex-start);
+        }
+        @include desktop{
+            @include flex(space-between, flex-start);
+        }
+    }
+
+    &__text{
+        
+        @include text-styles($b-f-size, $b-l-height,$f-weight-reg);
+        max-width: 98%;
+        padding-bottom: $padding;
+
+        @include tablet{
+            @include text-styles(d-tab.$b-f-size, d-tab.$b-l-height, $f-weight-reg);
+            width: 46.5%;
+        
+        }
+        @include desktop{
+            @include text-styles(d-tab.$b-f-size, d-tab.$b-l-height, $f-weight-reg);
+            width: 45%;
+            padding-bottom: $padding*2;
+        }
+    }
+}
+
+.gallery{
+    background-color: $alabaster;
+    padding: 0 $padding;
+    text-align: left;
+    
+        @include tablet{
+            padding: 0 $padding*2.25 $padding $padding*2.25;
+        }
+            @include desktop{
+                padding: 0 $padding*6 $padding $padding*6;
+            }
+
+    &__title{
+        @include text-styles($sh-f-size , $sh-l-height, $f-weight-demi);
+        padding: $padding*1.5 0 $padding 0;
+         
+        @include tablet{
+             @include text-styles(d-tab.$sh-f-size , d-tab.$sh-l-height, $f-weight-demi); 
+             padding: $padding*3 0 $padding*2.25 0; 
+         }
+                @include desktop{
+                    @include text-styles(d-tab.$sh-f-size , d-tab.$sh-l-height, $f-weight-demi);  
+                    padding: $padding*3 0 $padding*2.25 0;
+                }
+
+    }
+
+    &__items{
+        @include tablet{
+            @include flex(space-between, center){
+                flex-wrap: wrap;
+                width: 100%;
+            }
+        }
+            @include desktop{
+                @include flex(space-between, center){
+                    flex-wrap: wrap;
+                    margin: 0 auto;
+                }
+            }
+
+    }
+    &__img{
+        transition:all ease-in .5s;
+        padding-bottom: $padding;       
+        width: 100%;
+        &:hover{
+            filter: grayscale(100%);
+        }
+        @include tablet{
+            width: 31.25%;
+            padding-bottom: $padding*1.25;
+        }
+        @include desktop{
+            width: 31.5%;
+            padding-bottom: $padding*2.25;
+        }
+    }
+
+}
+
+.footer{
+    text-align: left;
+    padding: 0 $padding;
+    background-color: $black;
+    color: $white;
+    position: relative;
+        @include tablet{
+            padding: $padding*2.25 $padding*2.25;
+        }
+            @include desktop{
+                padding: $padding*2.25 $padding*6;
+            }
+    &__title{
+        @include text-styles($sh-f-size , $sh-l-height, $f-weight-demi);
+            @include tablet{
+                @include text-styles(d-tab.$sh-f-size , d-tab.$sh-l-height, $f-weight-demi);  
+            }
+                @include desktop{
+                    @include text-styles(d-tab.$sh-f-size , d-tab.$sh-l-height, $f-weight-demi);  
+                    padding: $padding*3 0 $padding*2.25 0;
+                }
+    }
+    &__contact-top{
+        @include tablet{
+            @include flex(space-between, baseline){
+               width: 57%; 
+               max-width: 480px;      
+            }
+        }
+        @include desktop{
+            @include flex(space-between, baseline){
+                width: 450px;
+            }            
+        }
+    }
+
+    &__social{
+        @include flex(flex-start, center);
+        &-img{
+            padding-right: $padding*2;
+        }
+    }
+    &__contact{
+        padding-bottom: $padding*2;
+     
+        //width: 70%;
+            @include tablet{
+                @include flex(space-between, center){
+                    flex-wrap: wrap;
+                    max-width: 950px;
+                }
+            }
+                @include desktop{
+                    @include flex(space-between, center){
+                        flex-wrap: wrap;
+                        width: 775px;
+                    }
+                }
+    }
+    &__logo{
+        padding-top: $padding*1.5;
+        @include tablet{
+            position: absolute;
+            top: 3.40rem;
+            right: 2.25rem;
+            
+        }
+        @include desktop{
+            position: absolute;
+            top: 3.4rem;
+            right: 6rem;
+        }
+    }
+    &__copyright{
+        @include text-styles($f-f-size, $f-l-height, $f-weight-reg);
+        padding: $padding 0;
+        
+    }
+
+}
+
+
+.contact{
+    @include tablet{
+        min-width: 30.5%;
+        max-width: 33%;
+    }
+
+    &__info{
+        padding: $padding 0;
+        font-size: .725rem;
+    }
+
+    &__location{
+        padding: 0 0 $padding 0;
+    }
+
+    &__email{
+        @include text-styles($f-f-size, $f-l-height, $f-weight-reg);
+    }
+}
+
+
+//contact__location__desc into contact__loation-desc
+//contact__info__name into contact__name:
+//contact__info__title into contact__title

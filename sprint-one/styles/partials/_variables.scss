@@ -1,0 +1,26 @@
+$hero-bg: url("../../assets/images/hero-bio.jpg");
+$band-bg: url("../../assets/images/band.jpg");
+
+$padding: 1rem;
+
+
+//font-weight
+
+$f-weight-bold: 700;
+$f-weight-demi: 600;
+$f-weight-reg: 400;
+
+
+//logo fixed size styles
+    $max-height: 20px;
+    $max-width: 120px;
+
+
+
+//tablet breakpoints
+
+$t-min-width: 768px;
+$t-max-width: 1279px;
+
+//desktop breakpoint
+$d-min-width: 1280px;
