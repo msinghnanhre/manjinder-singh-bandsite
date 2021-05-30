@@ -1,0 +1,259 @@
+@use "./partials/mixins" as *;
+@use "./partials/colors" as *;
+@use "./partials/typography" as *;
+@use "./partials/variables" as *;
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    @include text-styles($b-f-size, $b-l-height, $f-weight-reg);
+    font-family: avenir;
+    text-align: center;
+    width: 100%; 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2{
+    padding: $padding 0;
+}
+
+.header{ 
+    background-color: $black;
+    color: $white;
+    padding-top: $padding;
+   
+       @include tablet{
+            @include flex(flex-start, center){
+                padding: $padding $padding*2.25 0 $padding*2.25;
+            }  
+        }
+        @include desktop{
+            @include flex(flex-start, center){
+                padding: $padding $padding*5 0 $padding*6;
+            }  
+        }
+    &__logo {
+        @include tablet{
+            margin-bottom: .8rem;
+        }
+            @include desktop{
+            margin-bottom: .8rem;
+        }
+
+    }
+    &__container{
+
+        @include tablet{
+            @include flex(center, center);
+            width: 40%;
+            max-width: 300px;
+        }
+            @include desktop{
+            @include flex(space-around, center);
+            width: 300px;
+        }
+    }
+}
+
+// Hero section styles
+
+.hero{
+    position: relative;
+    height: 27rem;
+    background-position: 50% 50%;
+    background-size: cover;
+        @include tablet{
+            height: 33rem;
+            max-width: 100%;
+            background-position: bottom;
+            background-size: cover; 
+            }
+                @include desktop{
+                height: 40rem;
+                background-position: 50% 40%;      
+    }
+
+    &__overlay{
+        background-color: $black;
+        opacity: 50%;
+        z-index: 10;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+}
+
+.nav{
+    width: 100%;
+    &__list{
+        @include flex(space-between, center);
+        width: 100%;
+        @include tablet{
+            padding-left: 2rem;
+        }
+            @include desktop{
+            padding-left: 3rem;
+          
+        }
+
+
+        &item{
+            list-style: none;
+            width: 50%;
+            padding: $padding 0;
+            border-bottom: 4px solid $black;
+
+
+            &:hover, &:active {
+                border-bottom: 4px solid $white;
+                font-weight: $f-weight-demi;
+            }
+            @include tablet{
+                width: auto;
+                padding-bottom: 1.5rem;
+            }
+                @include desktop{
+                width: auto;
+                padding-bottom: 1.5rem;
+                }
+        }
+ 
+        &link{
+            text-decoration: none;
+            width: 100%;
+            padding-bottom: $padding;
+            color: $silver;
+            &:hover, &:active{
+                color: $white;
+                font-weight: normal;
+            }
+
+            @include tablet{
+                padding-bottom: 2rem;
+            }
+                @include desktop{
+                padding-bottom: 2rem;
+            }
+        }
+    }
+}
+
+//footer
+
+.footer{
+    text-align: left;
+    padding: 0 $padding;
+    background-color: $black;
+    color: $white;
+    position: relative;
+        @include tablet{
+            padding: $padding*2.25 $padding*2.25;
+        }
+            @include desktop{
+                padding: $padding*2.25 $padding*6;
+            }
+    &__title{
+        @include text-styles($sh-f-size , $sh-l-height, $f-weight-demi);
+            @include tablet{
+                @include text-styles($d-tab-sh-f-size , $d-tab-sh-l-height, $d-tab-f-weight-demi);  
+            }
+                @include desktop{
+                    @include text-styles($d-tab-sh-f-size , $d-tab-sh-l-height, $d-tab-f-weight-demi);  
+                    
+                }
+    }
+    &__contact-top{
+        @include tablet{
+            @include flex(space-between, baseline){
+               width: 57%; 
+               max-width: 480px;      
+            }
+        }
+        @include desktop{
+            @include flex(space-between, baseline){
+                width: 440px;
+            }            
+        }
+    }
+
+    &__social{
+        @include flex(flex-start, center);
+        &-img{
+            padding-right: $padding*2;
+        }
+    }
+    &__contact{
+        padding-bottom: $padding*2;
+     
+        //width: 70%;
+            @include tablet{
+                @include flex(space-between, center){
+                    flex-wrap: wrap;
+                    max-width: 950px;
+                }
+            }
+                @include desktop{
+                    @include flex(space-between, center){
+                        flex-wrap: wrap;
+                        width: 775px;
+                    }
+                }
+
+
+    }
+    &__logo{
+        padding-top: $padding*1.5;
+        @include tablet{
+            position: absolute;
+            top: 3.40rem;
+            right: 2.25rem;
+            
+        }
+        @include desktop{
+            position: absolute;
+            top: 3.4rem;
+            right: 6rem;
+        }
+    }
+
+    &__copyright{
+        @include text-styles($f-f-size, $f-l-height, $f-weight-reg);
+        padding: $padding 0;
+        
+    }
+
+
+}
+
+//footer contact 
+.contact{
+    @include tablet{
+        min-width: 30.5%;
+        max-width: 33%;
+    }
+
+    &__info{
+        padding: $padding 0;
+        font-size: $f-f-size;
+    }
+    &__title{
+        font-weight: $f-weight-bold;
+    }
+
+    &__location{
+        padding: 0 0 $padding 0;
+    }
+
+    &__email{
+        @include text-styles($f-f-size, $f-l-height, $f-weight-reg);
+    }
+}
