@@ -126,8 +126,8 @@ for (let i = 0; i < bookingArray.length; i++) {
 
 const btn = document.querySelectorAll(".shows__buy-ticket").forEach(button => {
     button.addEventListener("click", (e) => {
-        // console.log(e.path[1].children[1].children[1].innerText)
-        console.log(e)
+        console.log(e.path[1].children[1].children[1].innerText)
+        //console.log(e)
     })
 })
 

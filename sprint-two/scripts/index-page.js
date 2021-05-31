@@ -8,16 +8,16 @@ let comment = document.querySelector(".social-container__comments")
 //comment array object
 let commentArray = [
     {
-        fullName: "Manj",
+        fullName: "Connor Walton",
         timestamp: [time.getMonth(), time.getDate(), time.getFullYear()],
         comment: " This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains."
     },
         {
-        fullName: "Doruk",
+        fullName: "Emilie Beach",
         timestamp: [time.getMonth(), time.getDate(), time.getFullYear()],
         comment: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."
     },    {
-        fullName: "Ed",
+        fullName: "Miles Acosta",
         timestamp: [time.getMonth(), time.getDate(), time.getFullYear()],
         comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."
     },
@@ -79,9 +79,7 @@ function createCommentCard(commentArray) {
     return commentArticle
 }
 
-//function displayComment(item){
-//
-//}
+
 
 //loop over
 function displayComment(commentObj) {
@@ -97,23 +95,35 @@ function displayComment(commentObj) {
 //push new comment to array object through form entry
 let submitForm = document.querySelector(".user")
 
+const userNameInput = document.querySelector(".username-input")
+const commentInput = document.querySelector(".comment-input")
+
 function handleSubmit(e){
 
     e.preventDefault()
 
-    if (e.target.username.value === "") {
-        const userNameInput = document.querySelector(".username-input")
+    if (e.target.usercomment.value === "" && e.target.username.value === "") {
         userNameInput.classList.add("error-state")
-        
-    } else if (e.target.usercomment.value === "") {
-        const commentInput = document.querySelector(".comment-input")
         commentInput.classList.add("error-state")
     }
-     else {
+
+    else if (e.target.username.value && e.target.usercomment.value === "") {
+        commentInput.classList.add("error-state")
+        e.target.username.preventDefault()
+ 
+    } else if (e.target.usercomment.value && e.target.username.value === "") {
+        userNameInput.classList.add("error-state")
+        usercomment.classList.remove("error-state")
+        e.target.usercomment.preventDefault()
+    }
+
+    else {
         let newComment = {
             fullName: e.target.username.value,
             comment: e.target.usercomment.value 
         }
+        userNameInput.classList.remove("error-state")
+        commentInput.classList.remove("error-state")
 
         commentArray.unshift(newComment)
         displayComment(commentArray)
@@ -125,9 +135,5 @@ function handleSubmit(e){
 
 submitForm.addEventListener("submit", handleSubmit)
 
-// const formUserName = document.querySelector("username-input")
-// formUserName.addEventListener("click", (e) => {
-//     formUserName.styles.border = "1px solid red";
-// })
 
 

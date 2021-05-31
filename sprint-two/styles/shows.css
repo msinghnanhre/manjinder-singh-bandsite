@@ -82,7 +82,7 @@
 }
 @media (min-width: 1280px) {
   .hero__text {
-    width: 45%;
+    width: 50%;
   }
 }
 .hero__album-title {
@@ -351,6 +351,9 @@
 }
 .shows__buy-ticket:hover {
   background-color: #000000;
+}
+.shows__buy-ticket:active {
+  font-weight: 600;
 }
 .shows__buy-ticket--hidden {
   visibility: hidden;
