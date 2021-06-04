@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/global.css">
+    <link href="styles/bio.css" rel="stylesheet">
+    <title>Band Site</title>
+</head>
+<body>
+    <!--header section with Logo and nav-->
+    <header class="header">
+        <section class="header__container">
+            <a href="./index.html" class="header__link">
+                <img class="header__logo" src="./assets/logos/Logo-bandsite.svg" alt="Bandsite logo">
+            </a>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__listitem nav__listitem--bio">
+                        <a class="nav__listlink nav__listlink--bio" href="./index.html">Biography</a>
+                    </li>
+                    <li class="nav__listitem">
+                        <a class="nav__listlink" href="./pages/shows.html">Shows</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+
+    <!--Hero Section-->
+    <section class="hero">
+        <span class="hero__overlay"></span>
+        <h1 class="hero__title">The Bees Knees</h1>  
+    </section>
+    <!-- <section class="sample"></section>
+    <section class="sample2"></section>
+    <section class="sample3"></section> -->
+
+    <!--About the musicians section-->
+    <main class="main">
+        <h2 class="main__title">About the Musicians</h2>
+        <section class="main__content">
+            <section class="main__container">
+                
+                <img class="main__img" src="./assets/images/band.jpg" alt="picture of a band playing in dark background">
+                
+                <p class="main__text">"We push each other to be the best. It's not uncommon 
+                    for one of us to say 'this needs to be better, back to the drawing board'"
+                </p>
+                <span class="main__author">
+                    - Bryan Teddy, lead vocalist of The Bees Knees
+                </span>
+                <article class="description">
+                    <h3 class="description__title">The Bees Knees</h3>
+                    <section class="description__content">
+                        <p class="description__text">The Bees Knees is a pop rock band originating from San Francisco, California. The band
+                                consists of lead vocalist Bryan
+                                Teddy, guitarist Mack Tolkens, guitarist Andrew Green, bassist Kent Zulkee and drummer Freddie Fischer. The band
+                                achieved its first commercial success as an unsigned act, drawing attention from manager Cam Adams. Having worked
+                                with
+                                other popular acts (The Elephant In The Room, One Trick Pony, The Cat’s Meow), Adams was confident the band could
+                                succeed even further, pushing them to sign with Magenta Records.
+                        </p>
+                        <p class="description__text">From there, the band has soared, gaining international recognition and ranking in the top
+                                10 on the Poster Charts. New
+                                fans immediately fell in love with the band’s original and organic attitude, solidifying their place as one of the
+                                hottest and fastest up and coming acts of this century. Fans affectionately refer to themselves as “The Hive” and
+                                are
+                                drawn to their candid and authentic performances on stage. Looking forward to touring in the future, The Bees Knees
+                                are
+                                currently recording their second studio album, looking to be released in late 2021.
+                        </p>
+                    </section>
+                </article>
+            <section>
+        </section>
+    </main>
+
+    <!--Gallery section-->
+    <section class="gallery">
+        <h2 class="gallery__title">Photo Gallery</h2>
+        <section class="gallery__items">
+            <img class="gallery__img" src="./assets/images/Photo-gallery-1.jpg" alt="People dancing" >
+            <img class="gallery__img" src="./assets/images/Photo-gallery-2.jpg" alt="Picture of a girl Enjoying and dancing" >
+            <img class="gallery__img" src="./assets/images/Photo-gallery-3.jpg" alt="Picture of hands raised in the air" >
+            <img class="gallery__img" src="./assets/images/Photo-gallery-4.jpg" alt="A girl looking towards stage lights" >
+            <img class="gallery__img" src="./assets/images/Photo-gallery-5.jpg" alt="Picture of people dancing, really bright lights in the background" >
+            <img class="gallery__img" src="./assets/images/Photo-gallery-6.jpg" alt="A guy singing in the mic" >
+            <img class="gallery__img" src="./assets/images/Photo-gallery-7.jpg" alt="Picture of a stage and pink, yellowish lights" >
+            <img class="gallery__img" src="./assets/images/Photo-gallery-8.jpg" alt="Picture of DJ playing" >
+            <img class="gallery__img" src="./assets/images/Photo-gallery-9.jpg" alt="People dancing and confetti in the air" >
+        </section>
+    </section>
+
+    <!--form and comment section-->
+    <section class="social-container">
+        <h2 class="social-container__title">Join the Conversation</h2>
+        <section class="social-container__wrapper">
+            <section class="social-container__form">
+
+                <section class="social-container__img">
+                    <img class="social-container__img-user" src="./assets/images/Mohan-muruge.jpg" alt="user Image">
+                </section>
+
+                <form class="user">
+                    <section class="user__split">
+                        <label class="user__input-title " for="username">NAME</label>
+                        <input class="user__input-value username-input" type="text" id="username" placeholder="Enter your name" name="username" >
+                    </section>
+                    <section class="user__split">
+                        <label class="user__input-title" for="usercomment">COMMENT</label>
+                        <input class="user__input-value user__input-value--height comment-input" name="usercomment" id="usercomment" type="text" placeholder="Add your comment" > 
+                    </section>
+                    <section class="user__btn">
+                        <input class="user__btn-comment" type="submit" value="COMMENT">
+                    </section>           
+                </form>
+            </section>
+                    
+            <section class="social-container__comments">
+ 
+                <!--This comment section is populated through JS file-->
+
+            </section>
+        </section>
+    </section>
+    
+    <!--footer-->
+    <footer class="footer">
+
+        <section class="footer__contact-top">
+            <h2 class="footer__title">Get in Touch</h2>
+            <section class="footer__social">
+                <img src="./assets/icons/SVG/Icon-instagram.svg" alt="instagram logo" class="footer__social-img">
+                <img src="./assets/icons/SVG/Icon-facebook.svg" alt="facebook Icon" class="footer__social-img">
+                <img src="./assets/icons/SVG/Icon-twitter.svg" alt="twitter logo" class="footer__social-img">
+            </section>
+        </section>
+
+        <section class="footer__contact">
+
+            <article class="contact">
+                <section class="contact__info">
+                    <h3 class="contact__name">Cam Adams</h3>
+                    <span class="contact__title">The Bees Knees Management</span>
+                </section>
+                <section class="contact__location">
+                    <p class="contact__location-desc">503 Broadway Penthouse,</p>
+                    <p class="contact__location-desc">New York, NY 10012, USA</p>
+                </section>
+                <span class="contact__email">info@thebessknees.com</span>
+            </article>
+
+            <article class="contact">
+                <section class="contact__info">
+                    <h3 class="contact__name">Pearl Gregg</h3>
+                    <span class="contact__title">Limitless Artist Group</span>
+                </section>
+                <section class="contact__location">
+                    <p class="contact__location-desc">Booking Agent for</p>
+                    <p class="contact__location-desc">US / South America / Japan</p>
+                </section>
+                <span class="contact__email">pearl.gregg@limitlessag.com</span>
+            </article>
+
+            <article class="contact">
+                <section class="contact__info">
+                    <h3 class="contact__name">Carson Whyte</h3>
+                    <span class="contact__title">ARCH Entertainment</span>
+                </section>
+                <section class="contact__location">
+                    <p class="contact__location-desc">Booking Agent for</p>
+                    <p class="contact__location-desc">UK / EU / AU</p>
+                </section>
+                <span class="contact__email">cwhyte@archentertainment.com</span>
+            </article>
+        </section>
+
+        <a href="./index.html" class="footer__link">
+            <img class="footer__logo" src="./assets/logos/Logo-bandsite.svg" alt="Bandsite logo">
+        </a>
+        <p class="footer__copyright">Copyright The Bees Knees &#169; 2021 All Rights Reserved</p>
+
+    </footer>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="scripts/index-page.js"></script>
+</body>
+</html>

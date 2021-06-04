@@ -1,0 +1,302 @@
+@use "./partials/mixins" as *;
+@use "./partials/colors" as *;
+@use "./partials/typography" as *;
+@use "./partials/variables" as *;
+
+
+
+.nav{
+    width: 100%;
+    &__list{
+        &item{
+            &--shows{
+                border-bottom: 4px solid $white;
+            }
+
+            &:hover, &:active {
+                border-bottom: 4px solid $white;
+                font-weight: $f-weight-demi;
+            }
+        }
+ 
+        &link{
+            &:hover, &:active{
+                color: $white;
+            }
+            &--shows{
+                font-weight: $f-weight-demi;
+                color: $white;
+            }
+        }
+    }
+}
+
+// Hero section styles
+
+.hero{
+    background-image: $shows-bg;
+    background-position: 50% 45%;
+    @include tablet{
+        @include flex(space-between, center){
+           
+        }       
+    }
+    @include desktop{
+        @include flex(space-between, center)
+    }
+
+
+    &__content{
+        text-align: left;
+        padding: $padding 0;
+        z-index: 20;
+        position: absolute;
+        @include tablet{
+                //width: 100%;
+                padding: 0 $padding*1.25;
+        }
+
+        @include desktop{
+            @include flex(space-between, flex-end){
+                width: 100%;
+                padding: 0 $padding*5;
+                transform: translateY(-25%)
+            }
+            
+        }
+
+    }
+    &__text{
+        padding: $padding;
+        color: $white;
+        width: 80%;
+        @include tablet{
+            width: 100%;
+        }       
+
+        @include desktop{
+            width: 50%;
+        }
+    }
+
+    &__album-title{
+        @include text-styles($s-f-size, $s-l-height, $f-weight-demi);
+        padding: $padding*2 0;
+        @include tablet{
+            @include text-styles($d-tab-s-f-size, $d-tab-s-l-height, $f-weight-demi);           
+        }
+        @include desktop{
+            font-size: 1.75rem;
+        }
+
+    }
+
+    &__title{
+        @include text-styles($h-f-size, $h-l-height, $f-weight-bold);      
+        margin-right: 0;
+
+        @include tablet{
+            @include text-styles($d-tab-h-f-size, $d-tab-h-l-height, $f-weight-bold);
+            width: 75%;
+        }
+        @include desktop{
+            @include text-styles($d-tab-h-f-size, $d-tab-h-l-height, $f-weight-bold);
+            width: 100%;
+            
+        }
+    }
+    &__iframe{
+        padding: $padding*2 $padding;
+        border: none;
+
+        @include tablet{
+            width: 55%;
+            padding-top: $padding*3;
+            padding-bottom: $padding*3;
+        }
+        @include desktop{
+            width: 40%;
+            padding: 0;
+        }
+    }
+}
+
+//venue section styles     
+.shows{
+    text-align: left;
+    padding: $padding;
+        @include tablet{
+            padding: $padding $padding*2;
+        }
+            @include desktop{
+                @include flex(space-between, flex-start){
+                padding: 2.25rem 6rem;
+                }   
+        }
+ 
+
+    &__title{
+        @include text-styles($sh-f-size , $sh-l-height, $f-weight-demi);
+            @include tablet{
+                @include text-styles($d-tab-sh-f-size , $d-tab-sh-l-height, $f-weight-demi);  
+            }
+                @include desktop{
+                    @include text-styles($d-tab-sh-f-size , $d-tab-sh-l-height, $f-weight-demi);  
+                    padding: 0 0 $padding*2.25 0;
+                }
+    }
+    &__bookings{
+        @include desktop{
+            width: 74%;
+        }
+    }
+
+    &__bookings-card{
+        border-bottom: 1px solid $mercury;
+        padding: $padding 0;
+
+        @include tablet{
+            @include flex(space-between, center){
+            }
+        }
+            @include desktop{
+                @include flex(space-between, center){
+                }
+        }
+        //styles for date venue and location 
+        &--banner{
+            display: none;
+            border-bottom: none;
+            padding: $padding 0;
+            color: $silver;
+        @include tablet{
+            @include flex(space-between, center){
+            }
+        }
+            @include desktop{
+                @include flex(space-between, center){
+                }
+            }            
+        }
+    }
+
+    &__dates{
+        padding: $padding/2 0;
+            @include tablet{
+                width: 35%;
+            }
+                @include desktop{
+                    width: 35%;
+                }
+        &-title{
+            color: $silver;
+            font-weight: $f-weight-reg;
+            @include tablet{
+                display: none;
+            }  
+                @include desktop{
+                    display: none;
+            }  
+        }
+        &-time{
+            
+            font-weight: $f-weight-demi;
+            padding: $padding/2 0;
+            font-size: 1.1rem;
+        }
+        &--banner{
+            width: 35%;
+        }
+    }
+    &__venue{
+        padding: $padding/2 0;
+
+            @include tablet{
+                width: 20%;
+            }
+                @include desktop{
+                    width: 20%;
+                }
+        &-title{
+            color: $silver;
+            font-weight: normal; 
+
+            @include tablet{
+                display: none;
+            } 
+                @include desktop{
+                    display: none;
+            }            
+        }
+ 
+        &-place{
+            font-size: 1.1rem;
+            padding: $padding/2 0;
+        }
+        &--banner{
+            width: 20%;
+        }
+    }
+    &__location{
+        padding: $padding/2 0;
+
+            @include tablet{
+                width: 25%;
+            }
+                @include desktop{
+                    width: 25%;
+                }
+        &-title{
+            color: $silver;
+            font-weight: normal; 
+
+            @include tablet{
+                display: none;
+            } 
+                @include desktop{
+                    display: none;
+            } 
+        
+        }
+        &-city{
+            font-size: 1.1rem;
+            padding: $padding/2 0;
+        }
+        &--banner{
+            width: 25%;
+        }
+  
+    }
+    &__buy-ticket{
+        @include text-styles($lb-f-size, $lb-l-height, $f-weight-demi);
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        padding: $padding/1.5;
+        border-radius: 4px;
+        background-color: $black;
+        color: $white;
+
+
+        height: 40px;  
+        @include tablet{
+            width: 150px;
+        }   
+            @include desktop{
+            width: 150px;
+        }
+        &:hover{
+            background-color: $dark-black;  
+        }
+
+        &:active{
+            font-weight: $f-weight-demi;
+        }
+        &--hidden{
+            visibility: hidden;
+            width: 150px;
+        }    
+    }
+}
+
+

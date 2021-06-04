@@ -1,0 +1,504 @@
+@use "./partials/mixins" as *;
+@use "./partials/colors" as *;
+@use "./partials/typography" as *;
+
+@use "./partials/variables" as *;
+
+//biography specific nav styles
+.nav{  
+    &__list{
+        &item{
+            &--bio{
+               border-bottom: 4px solid $white; 
+            }
+            &:hover, &:active {
+                border-bottom: 4px solid $white;
+                font-weight: 600;
+            }
+         }
+        &link{
+            &--bio{
+                font-weight: $f-weight-demi;
+                color: $white;
+            }
+            @include tablet{
+                padding-bottom: 2rem;
+            }
+                @include desktop{
+                padding-bottom: 2rem;
+            }
+        }
+    }
+}
+
+// Hero section styles
+
+.hero{
+    background-image: $hero-bg;
+    &__title
+        {
+        @include text-styles($h-f-size , $h-l-height, $f-weight-demi);
+        padding-left: $padding;
+        color: $white;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 15;
+            @include tablet{
+                @include text-styles($d-tab-h-f-size , $d-tab-h-l-height, $f-weight-demi);
+                padding: 0 $padding*2.25;
+            };
+                @include desktop{
+                    @include text-styles($d-tab-h-f-size , $d-tab-h-l-height, $f-weight-demi);
+                    padding: 0 $padding*6;
+                };
+       
+        }
+}
+
+//main content styles 
+.main{
+    padding: 0 $padding;
+    text-align: left;
+    @include tablet{
+        padding: 0 $padding*2.25;
+    }
+        @include desktop{
+            padding: 0 $padding*6;
+        };
+
+    &__title{
+        @include text-styles($sh-f-size , $sh-l-height, $f-weight-demi);
+        padding-top: $padding*1.5 ;
+
+            @include tablet{
+                @include text-styles($d-tab-sh-f-size , $d-tab-sh-l-height, $f-weight-demi);
+                padding: $padding*3 0 $padding*2.25 0;
+            }
+                @include desktop{
+                    @include text-styles($d-tab-sh-f-size , $d-tab-sh-l-height, $f-weight-demi);
+                    padding: $padding*3 0 $padding*2.25 0;
+                }
+    }
+    &__container{
+        @include tablet{
+            max-width: 85%;
+            margin: 0 auto;
+        }
+
+        @include desktop{
+            max-width: 83.5%;
+            margin: 0 auto;
+        }
+    }
+    &__img{
+        width: 100%;
+        height: auto;
+    }
+
+    &__text{
+        @include text-styles($s-f-size, $s-l-height, $f-weight-demi);
+        padding: $padding 0;
+        @include tablet{
+            @include text-styles($d-tab-s-f-size, $d-tab-s-l-height, $f-weight-demi);
+            padding-top: $padding*2.25;
+        }
+        @include desktop{
+            @include text-styles($d-tab-s-f-size, $d-tab-s-l-height, $f-weight-demi);
+            max-width: 77%;
+            padding-top: $padding*2.25;
+        }
+    }
+    &__author{
+        @include text-styles($s-f-size, $s-l-height, $f-weight-demi);
+        @include tablet{
+            @include text-styles($d-tab-s-f-size, $d-tab-s-l-height, $f-weight-demi);
+        }
+    }
+}
+
+
+.description{
+    &__title{
+        @include text-styles($s-f-size, $s-l-height, $f-weight-demi);
+        padding: $padding*1.5 0 $padding 0;
+
+        @include tablet{
+            @include text-styles($d-tab-s-f-size, $d-tab-s-l-height, $f-weight-demi);
+            padding: $padding*3 0 $padding*2.25 0;
+        }
+
+        @include desktop{
+            @include text-styles($d-tab-s-f-size, $d-tab-s-l-height, $f-weight-demi);
+            padding: $padding*3 0 $padding*2.25 0;
+        }
+    }
+    &__content{
+        @include tablet{
+            @include flex(space-between, flex-start);
+        }
+        @include desktop{
+            @include flex(space-between, flex-start);
+        }
+    }
+
+    &__text{
+        
+        @include text-styles($b-f-size, $b-l-height,$f-weight-reg);
+        max-width: 98%;
+        padding-bottom: $padding;
+
+        @include tablet{
+            @include text-styles($d-tab-b-f-size, $d-tab-b-l-height, $f-weight-reg);
+            width: 46.5%;
+        
+        }
+        @include desktop{
+            @include text-styles($d-tab-b-f-size, $d-tab-b-l-height, $f-weight-reg);
+            width: 45%;
+            padding-bottom: $padding*2;
+        }
+    }
+}
+
+//images gallery section
+.gallery{
+    background-color: $alabaster;
+    padding: 0 $padding;
+    text-align: left;
+    
+        @include tablet{
+            padding: 0 $padding*2.25 $padding $padding*2.25;
+        }
+            @include desktop{
+                padding: 0 $padding*6 $padding $padding*6;
+            }
+
+    &__title{
+        @include text-styles($sh-f-size , $sh-l-height, $f-weight-demi);
+        padding: $padding*1.5 0 $padding 0;
+         
+        @include tablet{
+             @include text-styles($d-tab-sh-f-size ,$d-tab-sh-l-height, $f-weight-demi); 
+             padding: $padding*3 0 $padding*2.25 0; 
+         }
+                @include desktop{
+                    @include text-styles($d-tab-sh-f-size , $d-tab-sh-l-height, $f-weight-demi);  
+                    padding: $padding*3 0 $padding*2.25 0;
+                }
+
+    }
+
+    &__items{
+        @include tablet{
+            @include flex(space-between, center){
+                flex-wrap: wrap;
+                width: 100%;
+            }
+        }
+            @include desktop{
+                @include flex(space-between, center){
+                    flex-wrap: wrap;
+                    margin: 0 auto;
+                }
+            }
+
+    }
+    &__img{
+        transition:all ease-in .5s;
+        padding-bottom: $padding;       
+        width: 100%;
+        &:hover{
+            filter: grayscale(100%);
+        }
+        @include tablet{
+            width: 31.25%;
+            padding-bottom: $padding*1.25;
+        }
+        @include desktop{
+            width: 31.5%;
+            padding-bottom: $padding*2.25;
+        }
+    }
+
+}
+
+//users container start here
+
+.social-container{
+    text-align: left;
+    padding: 0 $padding $padding*2 $padding; 
+
+        @include tablet{
+            padding: 0 $padding*2.25 $padding $padding*2.25;
+        }
+            @include desktop{
+                padding: 0 $padding*6 $padding $padding*6;
+            }
+
+    &__wrapper{
+        @include tablet{
+            width: 75%;
+            margin: 0 auto;
+        }
+            @include desktop{
+                width: 50%;
+                margin: 0 auto;
+            }
+    }
+
+    &__title{
+        @include text-styles($sh-f-size , $sh-l-height, $f-weight-demi);
+        padding: $padding*1.5 0 $padding 0;
+            @include tablet{
+                @include text-styles($d-tab-sh-f-size , $d-tab-sh-l-height, $f-weight-demi);  
+            }
+                @include desktop{
+                    @include text-styles($d-tab-sh-f-size ,$d-tab-sh-l-height, $f-weight-demi);  
+                    padding: $padding*3 0 $padding*2.25 0;
+                }
+    }
+
+    &__form{
+        @include flex(space-between, flex-start);
+        padding-bottom: $padding;
+        border-bottom: 1px solid $mercury;
+
+            @include tablet{
+                width: 100%;
+                margin: 0 auto;
+            }
+    }
+
+
+    &__img{
+        width: 35px;
+        height: 35px;
+        border-radius:50%;
+        overflow: hidden;
+        margin-top: $padding*2.2;
+
+            @include tablet{
+                width: $a-max-width;
+                height: $a-max-height;
+                margin-top: $padding*2;
+            }
+        
+        &-user{
+            height: 100%;
+        
+        }
+    }
+
+    //section with comment SECTION starts here
+    &__comments{
+        padding-bottom: $padding;
+        max-height: 50vh;
+        overflow-y: scroll;
+
+            @include tablet{
+                width: 100%;
+                margin: 0 auto;
+            }
+    }
+}
+
+//styles for user section
+.user{
+    width: 88%;
+        @include tablet{
+            width: 88%;
+        }
+    &__split{
+        @include flex(space-between, flex-start){
+            flex-direction: column;
+            width: 100%;
+            padding: 0 0 $padding 0;
+        }
+            @include tablet{
+            
+            }
+    }
+    &__input-title{
+        color: $silver;
+        font-weight: $f-weight-demi;
+        padding: $padding/2 0 $padding/4 0;
+    }
+
+    &__input-value{   
+        width: 100%;
+        padding: .75rem;
+        border: 1px solid $mercury;
+        border-radius: 4px;
+        background-color: $alabaster;
+        color: $black;
+        font-family: avenir;
+        &--height{
+            padding-bottom: 5.4rem;
+            height: 7rem;
+            color: $black;
+        }
+        &::placeholder{
+            color: $black;
+        }
+        &:hover{
+            color: $black;
+        }
+
+        &:active{
+            border:1px solid $black;
+        }
+        &:focus{
+            outline: none;
+            border: 1px solid $black;
+        }
+
+        @include tablet{
+            min-height: 3rem;
+        }
+
+    }
+    &__btn{
+        @include tablet{
+            @include flex(flex-end, center){
+            }
+        }
+
+            @include desktop{
+                @include flex(flex-end, center){
+                }
+        }
+
+        &-comment{
+            @include text-styles($d-tab-lb-f-size, $lb-l-height, $f-weight-demi);
+            cursor: pointer;
+            width: 100%;
+            border: none;
+            padding: $padding/1.5;
+            border-radius: 4px;
+            background-color: $black;
+            color: $white;
+            height: 40px;
+
+            &:hover{
+            background-color: $dark-black;
+            
+
+            &:active{
+                font-weight: $f-weight-demi;
+            }
+        }
+
+        @include tablet{
+            @include text-styles($d-tab-lb-f-size, $d-tab-lb-l-height, $f-weight-demi);
+            width: 150px;
+            padding: 0 $padding*2 0 $padding*2;        
+        }
+            @include desktop{
+                @include text-styles($d-tab-lb-f-size, $d-tab-lb-l-height, $f-weight-demi);
+                width: 150px;
+                padding: 0 $padding*2 0 $padding*2; 
+            }
+     }
+    }
+
+}
+
+//styles for EACH COMMENT ARTICLE 
+.comment{
+    @include flex(space-between, flex-start);
+    border-bottom: 1px solid $mercury;
+    padding: $padding 0 $padding 0;
+    
+        @include tablet{
+            width: 100%;
+        }
+
+
+    &__avatar{
+        width:2.25rem;
+        height: 2.25rem;
+        background-color: $mercury;
+        border-radius: 50%;
+
+        @include tablet{
+            width: $a-max-width;
+            height: $a-max-height;
+        }
+    }
+    &__container{
+        width: 88%;
+        @include tablet{
+            width: 88%;
+        }
+    }
+    &__name-date{
+        @include flex(space-between, center);
+        padding-bottom: $padding/2;
+    }
+    &__name{
+        font-weight: $f-weight-demi;
+    }
+
+    &__date{
+        color: $mercury;
+        font-weight: $f-weight-reg;
+    }
+
+    &__buttons{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 1rem;
+    }
+
+    &__likes{
+        //border: 2px solid red;
+        outline: none;
+        background-color: transparent;
+        border: 1px solid $mercury;
+        border-radius: 4px;
+        height:1.75rem;
+        padding: $padding/2.5;
+        cursor: pointer;
+        transition: all .5s ease-in;
+
+        &:hover{
+            transform: scale(1.05);
+            box-shadow: 0px 0px 2.5px $silver;
+            margin: .20rem 0rem;
+        }
+    }
+
+    &__delete{
+        padding:0 $padding/2 0 $padding/2;
+        margin-right: .25rem;
+        height:1.75rem;
+        line-height: .25rem;
+        outline: none;
+        border-radius: 4px;
+        background-color: transparent;
+        border: 1px solid $error;
+        color: $silver;
+        cursor: pointer;
+        transition: all .75s ease-in;
+        &:hover{
+            transform: scale(1.02);
+            margin: .20rem;
+            box-shadow: 0px 0px 2.5px $error;
+        }
+    }
+
+
+}
+.fa-thumbs-up::before{
+    padding-right: .25rem;
+}
+
+//error state class for form inputs
+.error-state{
+    border: 1px solid $error;
+}
+
+
+

@@ -1,0 +1,45 @@
+@use "./colors" as *;
+
+@use "./typography" as *;
+
+@use "./variables" as *;
+
+
+
+//mixin to set font-size, line-height, font-weight properties for various elements in desktop and tablet setup
+
+@mixin text-styles($f-size, $l-height, $f-weight ){
+    font-size: $f-size;
+    line-height: $l-height;
+    font-weight: $f-weight;
+};
+
+//flex mixin
+@mixin flex($justify-content, $align-items){
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    @content
+};
+
+//media query
+
+@mixin tablet{
+    @media (min-width: $t-min-width) and (max-width: $t-max-width){
+        @content
+    }
+};
+
+//desktop media query
+@mixin desktop{
+    @media (min-width: $d-min-width){
+        @content
+    }
+};
+
+
+//mixin for logo size
+@mixin logo-size{
+    max-width: $max-width;
+    max-height: $max-height;
+};
