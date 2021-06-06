@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "avenir";
   src: url("../../assets/fonts/AvenirNextLTProBold.ttf") format("truetype");
@@ -545,39 +546,46 @@
 .comment__likes {
   outline: none;
   background-color: transparent;
-  border: 1px solid #e1e1e1;
+  border: none;
   border-radius: 4px;
   height: 1.75rem;
   padding: 0.4rem;
   cursor: pointer;
-  transition: all 0.5s ease-in;
+  transition: all 0.25s ease-in;
 }
 .comment__likes:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 0px 2.5px #afafaf;
-  margin: 0.2rem 0rem;
+  transform: scale(1.02);
+  border: none;
+  box-shadow: 0px 0px 4px #afafaf;
 }
 .comment__delete {
   padding: 0 0.5rem 0 0.5rem;
-  margin-right: 0.25rem;
+  margin-right: 0.2rem;
   height: 1.75rem;
   line-height: 0.25rem;
   outline: none;
   border-radius: 4px;
   background-color: transparent;
-  border: 1px solid #d22d2d;
+  border: none;
   color: #afafaf;
   cursor: pointer;
-  transition: all 0.75s ease-in;
+  transition: all 0.25s ease-in;
 }
 .comment__delete:hover {
   transform: scale(1.02);
-  margin: 0.2rem;
-  box-shadow: 0px 0px 2.5px #d22d2d;
+  margin-right: 0.2rem;
+  box-shadow: 0px 0px 5px #d22d2d;
 }
 
 .fa-thumbs-up::before {
-  padding-right: 0.25rem;
+  padding-right: 0.5rem;
+  filter: drop-shadow(0px 0px 50px #afafaf);
+}
+
+.fa-circle-minus::after {
+  content: "";
+  color: #d22d2d;
+  padding-left: 0.25rem;
 }
 
 .error-state {

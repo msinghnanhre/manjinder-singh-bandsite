@@ -1,7 +1,7 @@
 //parent container for all the cards
 const main = document.querySelector(".shows")
 
-//create element functions code block 
+//create child elements with classnames and text inside
 const createChildWithText = (element, className) => {
     return (content) => {
         let newElement = document.createElement(element);
@@ -10,7 +10,7 @@ const createChildWithText = (element, className) => {
         return newElement
     }
 }
-
+//create parent element with classnames 
 const createParent = (element, className) => {
         let newElement = document.createElement(element);
         newElement.classList.add(className)
@@ -31,83 +31,92 @@ main.prepend(title("Shows"))
 //bookings container 
 const bookings = createParent("section", "shows__bookings")
 appendToParent(bookings, main)
+ 
 
+//create shows function 
+function createShowsSection(shows) {
+    let datetime = new Date(Number(shows.date)).toDateString();
 
+    const bookingCard = createParent("section", "shows__bookings-card")
+    appendToParent(bookingCard, bookings)
 
-function getShows() {
-    axios.get("https://project-1-api.herokuapp.com/showdates?api_key=71c14d6b-28b0-47ff-a180-81d9a00d3c21")
-        .then(response => {
-            //console.log(response.data)
-            response.data.forEach((item, index) => {
-                //console.log(item)
-                let datetime = new Date(Number(item.date)).toDateString();
-                //console.log(item.date)
-                // let dateFormatted = ` ${datetime.getMonth()} / ${datetime.getDay().toString()} / ${datetime.getFullYear()}`
+    const dateSection = createParent("section", "shows__dates")
+    appendToParent(dateSection, bookingCard)
 
-                let venueValue = item.place
-                let locationValue = item.location
-                
-                // console.log(item)
-                if (index === 0) {
+    const dateTitle = createChildWithText("h4", "shows__dates-title")
+    appendToParent(dateTitle("DATE"), dateSection)
 
-                    const bookingCardBanner = createParent("section", "shows__bookings-card--banner")
-                    appendToParent(bookingCardBanner, bookings)
+    const dateTime = createChildWithText("p", "shows__dates-time")
+    appendToParent(dateTime(datetime), dateSection)
 
-                    const dateBanner = createChildWithText("h4", "shows__dates--banner")
-                    appendToParent(dateBanner("DATE"), bookingCardBanner)
+    const venueSection = createParent("section", "shows__venue")
+    appendToParent(venueSection, bookingCard)
 
-                    const venueBanner = createChildWithText("h4", "shows__venue--banner")
-                    appendToParent(venueBanner("VENUE"), bookingCardBanner)
+    const venueTitle = createChildWithText("h4", "shows__venue-title")
+    appendToParent(venueTitle("VENUE"), venueSection)
 
-                    const locationBanner = createChildWithText("h4", "shows__location--banner")
-                    appendToParent(locationBanner("LOCATION"), bookingCardBanner)
+    const venuePlace = createChildWithText("p", "shows__venue-place")
+    appendToParent(venuePlace(shows.place), venueSection)
 
-                    const btnHidden = createChildWithText("button", "shows__buy-ticket--hidden")
-                    appendToParent(btnHidden("BUY TICKETS"), bookingCardBanner)
-                }
-                    const bookingCard = createParent("section", "shows__bookings-card")
-                    appendToParent(bookingCard, bookings)
+    const locationSection = createParent("section", "shows__location")
+    appendToParent(locationSection, bookingCard)
 
-                    const dateSection = createParent("section", "shows__dates")
-                    appendToParent(dateSection, bookingCard)
+    const locationTitle = createChildWithText("h4", "shows__location-title")
+    appendToParent(locationTitle("LOCATION"), locationSection)
 
-                    const dateTitle = createChildWithText("h4", "shows__dates-title")
-                    appendToParent(dateTitle("DATE"), dateSection)
+    const locationCity = createChildWithText("p", "shows__location-city")
+    appendToParent(locationCity(shows.location), locationSection)
 
-                    const dateTime = createChildWithText("p", "shows__dates-time")
-                    appendToParent(dateTime(datetime), dateSection)
-
-                    const venueSection = createParent("section", "shows__venue")
-                    appendToParent(venueSection, bookingCard)
-
-                    const venueTitle = createChildWithText("h4", "shows__venue-title")
-                    appendToParent(venueTitle("VENUE"), venueSection)
-
-                    const venuePlace = createChildWithText("p", "shows__venue-place")
-                    appendToParent(venuePlace(venueValue), venueSection)
-
-                    const locationSection = createParent("section", "shows__location")
-                    appendToParent(locationSection, bookingCard)
-
-                    const locationTitle = createChildWithText("h4", "shows__location-title")
-                    appendToParent(locationTitle("LOCATION"), locationSection)
-
-                    const locationCity = createChildWithText("p", "shows__location-city")
-                    appendToParent(locationCity(locationValue), locationSection)
-
-                    const btn = createChildWithText("button", "shows__buy-ticket")
-                    btn.id = item.id;
-                    appendToParent(btn("BUY TICKETS"), bookingCard)
-            })
-            let buyBtn = document.querySelectorAll("shows__buy-ticket")
-            console.log(buyBtn)
-            // buyBtn.forEach(btn => {
-            //     console.log(btn)
-            //     btn.addEventListener("click", (e) => {
-            //         console.log(e.target)
-            //     })
-            // })
-        })
+    const btn = createChildWithText("button", "shows__buy-ticket")
+    btn.id = shows.id;
+    appendToParent(btn("BUY TICKETS"), bookingCard)
 }
 
+
+//create Banner Only Runs for first iteration and Hidden For mobile.
+function createBanner() {
+        const bookingCardBanner = createParent("section", "shows__bookings-card--banner")
+        appendToParent(bookingCardBanner, bookings)
+
+        const dateBanner = createChildWithText("h4", "shows__dates--banner")
+        appendToParent(dateBanner("DATE"), bookingCardBanner)
+
+        const venueBanner = createChildWithText("h4", "shows__venue--banner")
+        appendToParent(venueBanner("VENUE"), bookingCardBanner)
+
+        const locationBanner = createChildWithText("h4", "shows__location--banner")
+        appendToParent(locationBanner("LOCATION"), bookingCardBanner)
+
+        const btnHidden = createChildWithText("button", "shows__buy-ticket--hidden")
+        appendToParent(btnHidden("BUY TICKETS"), bookingCardBanner)   
+}
+
+
+const url = "https://project-1-api.herokuapp.com"
+
+const apiKey = "?api_key=71c14d6b-28b0-47ff-a180-81d9a00d3c21";
+
+function getShows() {
+    axios.get(`${url}/showdates${apiKey}`)
+        .then(response => {
+            response.data.forEach((item, index) => {
+                if (index === 0) {
+                    createBanner();
+                } else {
+                    createShowsSection(item);
+                }
+            })
+            //event listener for Buy Ticket button which console log the venue name
+
+                const buyButton = document.querySelectorAll(".shows__buy-ticket").forEach(button => {
+                button.addEventListener("click", (e) => {
+                    let current = e.target;
+                    console.log(current)
+                    console.log(current.parentNode.childNodes[1].innerText)
+                })
+            })
+      })
+}
+
+//loads the shows data from API when page is loaded.
 getShows()

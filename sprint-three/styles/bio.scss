@@ -446,54 +446,60 @@
     }
 
     &__buttons{
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
+        @include flex(space-between, flex-start){}
         margin-top: 1rem;
     }
 
     &__likes{
-        //border: 2px solid red;
         outline: none;
         background-color: transparent;
-        border: 1px solid $mercury;
+        border: none;
         border-radius: 4px;
         height:1.75rem;
         padding: $padding/2.5;
         cursor: pointer;
-        transition: all .5s ease-in;
+        transition: all .25s ease-in;
+
 
         &:hover{
-            transform: scale(1.05);
-            box-shadow: 0px 0px 2.5px $silver;
-            margin: .20rem 0rem;
+            transform: scale(1.02);
+            border: none;
+            box-shadow: 0px 0px 4px $silver;
         }
     }
 
     &__delete{
         padding:0 $padding/2 0 $padding/2;
-        margin-right: .25rem;
+        margin-right: .20rem;
         height:1.75rem;
         line-height: .25rem;
         outline: none;
         border-radius: 4px;
         background-color: transparent;
-        border: 1px solid $error;
+        border: none;
         color: $silver;
         cursor: pointer;
-        transition: all .75s ease-in;
+        transition: all .25s ease-in;
+        
         &:hover{
             transform: scale(1.02);
-            margin: .20rem;
-            box-shadow: 0px 0px 2.5px $error;
+            margin-right: .20rem;
+            box-shadow: 0px 0px 5px $error; 
         }
     }
-
-
 }
+//pseudo styles for like and delete icons
+
 .fa-thumbs-up::before{
-    padding-right: .25rem;
+    padding-right: .5rem;
+    filter: drop-shadow(0px 0px 50px $silver);
 }
+.fa-circle-minus::after{
+    content: "\f056";
+    color: $error;
+    padding-left: .25rem;
+}
+
 
 //error state class for form inputs
 .error-state{
