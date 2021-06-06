@@ -111,7 +111,6 @@ function getShows() {
                 const buyButton = document.querySelectorAll(".shows__buy-ticket").forEach(button => {
                 button.addEventListener("click", (e) => {
                     let current = e.target;
-                    console.log(current)
                     console.log(current.parentNode.childNodes[1].innerText)
                 })
             })
