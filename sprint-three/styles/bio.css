@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: "avenir";
   src: url("../../assets/fonts/AvenirNextLTProBold.ttf") format("truetype");
@@ -543,49 +542,59 @@
   align-items: flex-start;
   margin-top: 1rem;
 }
+.comment__like-section {
+  position: relative;
+  border-radius: 4px;
+  transition: all 0.25s ease-in;
+}
+.comment__like-section:hover {
+  border: none;
+  box-shadow: 0px 0px 4px #afafaf;
+  background-color: rgba(175, 175, 175, 0.5);
+}
+.comment__like-icon {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  z-index: -1;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transform: scale(0.85);
+}
 .comment__likes {
   outline: none;
   background-color: transparent;
   border: none;
-  border-radius: 4px;
-  height: 1.75rem;
   padding: 0.4rem;
+  padding-left: 1.75rem;
   cursor: pointer;
-  transition: all 0.25s ease-in;
 }
-.comment__likes:hover {
-  transform: scale(1.02);
-  border: none;
-  box-shadow: 0px 0px 4px #afafaf;
+.comment__delete-section {
+  position: relative;
+  transition: all 0.25s ease-in;
+  border-radius: 4px;
+}
+.comment__delete-section:hover {
+  box-shadow: 0px 0px 5px #d22d2d;
+  background-color: rgba(210, 45, 45, 0.6);
+}
+.comment__delete-icon {
+  position: absolute;
+  right: 10%;
+  top: 15%;
+  z-index: -1;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transform: scale(0.85);
 }
 .comment__delete {
-  padding: 0 0.5rem 0 0.5rem;
-  margin-right: 0.2rem;
+  padding: 0 1.5rem 0 0.5rem;
   height: 1.75rem;
-  line-height: 0.25rem;
   outline: none;
-  border-radius: 4px;
   background-color: transparent;
   border: none;
-  color: #afafaf;
+  color: #323232;
   cursor: pointer;
-  transition: all 0.25s ease-in;
-}
-.comment__delete:hover {
-  transform: scale(1.02);
-  margin-right: 0.2rem;
-  box-shadow: 0px 0px 5px #d22d2d;
-}
-
-.fa-thumbs-up::before {
-  padding-right: 0.5rem;
-  filter: drop-shadow(0px 0px 50px #afafaf);
-}
-
-.fa-circle-minus::after {
-  content: "";
-  color: #d22d2d;
-  padding-left: 0.25rem;
 }
 
 .error-state {

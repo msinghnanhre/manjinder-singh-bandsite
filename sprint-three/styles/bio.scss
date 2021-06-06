@@ -449,55 +449,67 @@
         @include flex(space-between, flex-start){}
         margin-top: 1rem;
     }
+    
+    &__like-section{
+        position: relative;
+        border-radius: 4px;
+        transition: all .25s ease-in;
+            &:hover{
+            border: none;
+            box-shadow: 0px 0px 4px $silver;
+            background-color: rgba(175,175,175,0.5);
+        }
+    }
+
+    &__like-icon{
+        position: absolute;
+        top: 15%;
+        left: 10%;
+        z-index: -1;
+        transform: translateY(-50%);
+        cursor: pointer;
+        transform: scale(.85);
+    }
 
     &__likes{
         outline: none;
         background-color: transparent;
         border: none;
-        border-radius: 4px;
-        height:1.75rem;
         padding: $padding/2.5;
+        padding-left: $padding*1.75;
         cursor: pointer;
+    }
+
+    &__delete-section{
+        position: relative;
         transition: all .25s ease-in;
-
-
-        &:hover{
-            transform: scale(1.02);
-            border: none;
-            box-shadow: 0px 0px 4px $silver;
+        border-radius: 4px;
+            &:hover{
+            box-shadow: 0px 0px 5px $error; 
+            background-color: rgba(210, 45, 45, 0.6);
         }
+    }
+
+    &__delete-icon{
+        position: absolute;
+        right: 10%;
+        top: 15%;
+        //left: 10%;
+        z-index: -1;
+        transform: translateY(-50%);
+        cursor: pointer;
+        transform: scale(.85);
     }
 
     &__delete{
-        padding:0 $padding/2 0 $padding/2;
-        margin-right: .20rem;
+        padding:0 $padding*1.5 0 $padding/2;
         height:1.75rem;
-        line-height: .25rem;
         outline: none;
-        border-radius: 4px;
         background-color: transparent;
         border: none;
-        color: $silver;
+        color: $black;
         cursor: pointer;
-        transition: all .25s ease-in;
-        
-        &:hover{
-            transform: scale(1.02);
-            margin-right: .20rem;
-            box-shadow: 0px 0px 5px $error; 
-        }
     }
-}
-//pseudo styles for like and delete icons
-
-.fa-thumbs-up::before{
-    padding-right: .5rem;
-    filter: drop-shadow(0px 0px 50px $silver);
-}
-.fa-circle-minus::after{
-    content: "\f056";
-    color: $error;
-    padding-left: .25rem;
 }
 
 

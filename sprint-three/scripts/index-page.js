@@ -1,5 +1,4 @@
 const formUserName = document.querySelector(".username-input")
-
 let comment = document.querySelector(".social-container__comments")
 
 //get comments from apiKey
@@ -11,7 +10,6 @@ const options = {
     headers: { 'Content-Type': 'application/json' }
 };
 
-
 // //Default comments load up when page first loads
 window.addEventListener("load", getSample())
 
@@ -21,7 +19,6 @@ function createComment(element, className) {
     el.classList.add(className)
     return el
 }
-
 
 //create comment section function name
 function commentSection(comments) {
@@ -53,25 +50,34 @@ function commentSection(comments) {
     commentContainer.appendChild(commentText)
 
     // comments action Buttons
+    let commentLikeSection = createComment("section", "comment__like-section")
+
+    let commentLikeIcon = createComment("img", "comment__like-icon")
+    commentLikeIcon.setAttribute("src", "../assets/icons/SVG/icon-like.svg")
+
 
     let commentLikes = createComment("button", "comment__likes")
     commentLikes.innerText = comments.likes
     commentLikes.id = comments.id
-    commentLikes.classList.add("far")
-    commentLikes.classList.add("fa-thumbs-up")
+    commentLikeSection.appendChild(commentLikeIcon)
+    commentLikeSection.appendChild(commentLikes)
+
+    //delete button elements 
+    const deleteSection = createComment("section", "comment__delete-section")
 
     let commentDelete = createComment("button", "comment__delete")
     commentDelete.innerText = "Delete"
     commentDelete.id = comments.id;
 
-    let commentDeleteSpan = createComment("span", "comment__icon")
-    commentDeleteSpan.classList.add("fas")
-    commentDeleteSpan.classList.add("fa-circle-minus")
-    commentDelete.appendChild(commentDeleteSpan)
+    let commentDeleteIcon = createComment("img", "comment__delete-icon")
+    commentDeleteIcon.setAttribute("src", "../assets/icons/SVG/icon-delete.svg")
+
+    deleteSection.appendChild(commentDelete)
+    deleteSection.appendChild(commentDeleteIcon)
 
     let commentBtns = createComment("section", "comment__buttons")
-    commentBtns.appendChild(commentLikes)
-    commentBtns.appendChild(commentDelete)
+    commentBtns.appendChild(commentLikeSection)
+    commentBtns.appendChild(deleteSection)
 
     commentContainer.appendChild(commentBtns)
     comment.appendChild(commentArticle)
@@ -140,10 +146,10 @@ function getSample() {
                     .then(response => {
                         e.preventDefault()
                         comment.innerHTML = ""
-                        getSample()                      
+                        getSample()                     
                     })
+                })
             })
-        })
         
         //delete comments
         const deleteComment = document.querySelectorAll(".comment__delete")
@@ -156,8 +162,9 @@ function getSample() {
                         getSample()                       
                 })
             })
-        })       
+            })       
     })
+    
 }
 
 
